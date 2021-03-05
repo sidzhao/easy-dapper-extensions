@@ -1,0 +1,25 @@
+version: "3.8"
+services:
+
+  # postgres image refer to https://hub.docker.com/_/postgres
+  # default user is postgres
+  postgres:
+    container_name: easy_dapper_postgres
+    image: postgres:13.2
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: 123456
+  
+  # mysql image refer to https://hub.docker.com/_/mysql
+  mysql:
+    container_name: easy_dapper_mysql
+    image: mysql:8.0
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    ports:
+      - 3306:3306
+      - 33060:33060
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
